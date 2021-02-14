@@ -25,6 +25,7 @@ class BurgerBuilder extends Component {
     error: null
   };
 
+  // Fetch all data from the backend and passed it into the ingredients state 
   componentDidMount () {
     console.log(this.props);
     axios.get('https://react-my-burger-1a90c-default-rtdb.firebaseio.com/ingredients.json')
@@ -108,9 +109,10 @@ class BurgerBuilder extends Component {
     }
     let orderSummary = null;
     
-    
+    // Check if the error prop is equal than null. If its false we assigned the Spinner component into the burger variable 
     let burger = this.state.error ? <p>Ingredients can't be loaded!</p> : <Spinner />
 
+    // 
     if (this.state.ingredients) {
       burger = (
         <Aux>
@@ -135,7 +137,6 @@ class BurgerBuilder extends Component {
     if (this.state.loading) {
       orderSummary = <Spinner />;
     }
-    
     
     return (
       <Aux>
