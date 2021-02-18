@@ -5,10 +5,11 @@ import { Provider } from 'react-redux';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import reducer from './store/reducer';
-import { createStore } from 'redux';
+import burgerBuilderReducer from './store/reducers/burgerBuilder';
+import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 
-const store = createStore(reducer);
+const store = createStore(burgerBuilderReducer, applyMiddleware(thunk));
 
 const app = (
   <Provider store={store}>
