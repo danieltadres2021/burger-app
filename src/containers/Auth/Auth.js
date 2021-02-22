@@ -78,6 +78,8 @@ class Auth extends Component {
     this.props.onAuth(this.state.controls.email.value, (this.state.controls.password.value))
   }
 
+  
+
   render () {
     const formElementsArray = [];
     for (let key in this.state.controls) {
